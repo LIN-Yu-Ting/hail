@@ -1,0 +1,28 @@
+name: Deploy to docker hub
+
+on:
+  push:
+    branches:
+      - '*'
+env:
+  RC_NAME: atgenomix/hail
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checkout private tools
+        uses: actions/checkout@v2
+        with:
+          ref: annotation
+          repository: AnomeGAP/Seqslab_Runtime
+          token: 94fe182ac6c203b457d84d7800de02c5060a265a
+          path: test
+
+      - name: Check files
+        run: |
+          pwd
+          ls -l
