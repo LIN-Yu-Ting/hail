@@ -19,7 +19,7 @@ jobs:
         with:
           ref: annotation
           repository: AnomeGAP/Seqslab_Runtime
-          token: 94fe182ac6c203b457d84d7800de02c5060a265a
+          token: ${{ secrets.PAT_SEQSLAB_RUNTIME }} 
           path: test
 
       - name: Check files
